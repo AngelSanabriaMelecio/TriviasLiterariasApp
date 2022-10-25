@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body background="./assets/fondo.jpg">
+    <div class="mainContainer">
+        <section>
+            <div class="trivia">
+                <div class="container titleContainer">
+                    <input type="text" placeholder="Nombre de la Trivia">
+                </div>
+                <div id="questionContainer">
+                    <div class="question container">
+                        <div class="row">
+                            <div class="questionName">
+                                <input type="text" placeholder="Pregunta">
+                            </div>
+                            <button class="button" onclick="">
+                                <strong style="font-size:larger">X</strong>
+                            </button>
+                        </div>
+                        <div class="incisosContainer">
+                            <div class="inciso" id="in1">
+                                <input class="check" type="checkbox" disabled>
+                                <input class="input" id="last" type="text" onfocus="handleFocus(event)"
+                                    placeholder="Agrega Un Inciso">
+                                <button class="button" onclick="deleteInciso('incisos1',1)" disabled>
+                                    X
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="question container">
+                        <div class="row">
+                            <div class="questionName">
+                                <input type="text" placeholder="Pregunta">
+                            </div>
+                            <button class="button" onclick="">
+                                <strong style="font-size:larger">X</strong>
+                            </button>
+                        </div>
+                        <div class="incisosContainer">
+                            <div class="inciso" id="in1">
+                                <input class="check" type="checkbox" disabled>
+                                <input class="input" id="last" type="text" onfocus="handleFocus(event)"
+                                    placeholder="Agrega Un Inciso">
+                                <button class="button" onclick="deleteInciso('incisos1',1)" disabled>
+                                    X
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="container buttonContainer">
+                    <button onclick="addQuestion(event)">
+                        +
+                    </button>
+                </div>
+            </div>
+        </section>
+        <aside>
+            <div id="savedTriviasContainer">
+                <div class="savedTriviasRow">
+                    <div class="container savedTrivia" style="width:50%">
+                        <div class="triviaInfo">
+                            <h4>Harry Potter</h4>
+                        </div>
+                        <div class="triviaInfo">
+                            <h5>Preguntas: 5</h5>
+                        </div>
+                    </div>
+                    <div class="container savedTrivia" style="width:50%">
+                        <div class="triviaInfo">
+                            <h4>El Periquillo Sarmiento</h4>
+                        </div>
+                        <div class="triviaInfo">
+                            <h5>Preguntas: 20</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="savedTriviasRow">
+                    <div class="container savedTrivia" style="width:50%">
+                        <div class="triviaInfo">
+                            <h4>Harry Potter</h4>
+                        </div>
+                        <div class="triviaInfo">
+                            <h5>Preguntas: 5</h5>
+                        </div>
+                    </div>
+                    <div class="container savedTrivia" style="width:50%">
+                        <div class="triviaInfo">
+                            <h4>+</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+    </div>
+</body>
+<script src="main.js"></script>
+</html>
