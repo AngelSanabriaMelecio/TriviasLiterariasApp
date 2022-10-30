@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="registro.css" />
-    <script src="./registro.js"></script>
+    <link rel="stylesheet" type="text/css" href="login.css" />
+    <script src="./login.js"></script>
     <link rel="stylesheet" href="../../comp/appBar/appBarStyles.css">
     <title>Document</title>
 </head>
@@ -39,9 +39,9 @@
                 <div id="menu1" class="menuOption">
                     <li onclick="showSubMenu(1)">
                         Concursos
-                        <span class=" absoluteRight">
-                            <img class="arrowImg" src="../../comp/appBar/appBarAssets/arrow-down.png" alt="">
-                            <img class="listImg" src="../../comp/appBar/appBarAssets/list.png" alt="">
+                        <span class="absoluteRight">
+                            <img class="arrowImg" src="../../comp/appBar/appBarAssets/arrow-down.png" alt="" />
+                            <img class="listImg" src="../../comp/appBar/appBarAssets/list.png" alt="" />
                         </span>
                     </li>
                     <span class="absoluteFill">
@@ -57,18 +57,16 @@
     </div>
     <!-- ************************** -->
     <section class="mainContainer">
-        <h1>Regístrate ahora</h1><br />
-
-
+        <h1>Inicia Sesión</h1><br />
         <div id="fields">
-            <span>Nombre de usuario <input id="userName" type="text" /></span>
+            <span>Nombre de usuario <input id="userNameLogin" type="text" /></span>
             <br>
-            <span>Contraseña <input id="password" type="password" /></span>
+            <span>Contraseña <input id="passwordLogin" type="password" /></span>
             <br>
             <br>
             <div id="button">
-                <button id="register">Crear cuenta</button>
-                <button id="login">Iniciar Sesion</button>
+                <button id="login" onclick="return login()">Iniciar Sesión</button>
+                <button id="register">Crear Cuenta</button>
             </div>
         </div>
 

@@ -1,8 +1,7 @@
-
-
-html,body{
-    height:100%;
-    margin:0;
+html,
+body {
+    height: 100%;
+    margin: 0;
     display: flex;
     flex-direction: column;
     font-family: Arial, Helvetica, sans-serif;
@@ -10,83 +9,85 @@ html,body{
     color: white;
 }
 
-h1{
+h1 {
     font-size: 30px;
-    
+
 }
-.mainContainer{
-    
-    display: flex;    
+
+.mainContainer {
+
+    display: flex;
     align-items: center;
     flex-direction: column;
-    justify-content: center;    
+    justify-content: center;
     height: 100%;
-    
+
 }
 
-#fields{    
+#fields {
     margin-top: 2%;
     font-size: 25px;
-    text-align: right;    
-    
- 
+    text-align: right;
 }
 
-#fields span{
+#fields span {
     display: block;
 }
 
-#fields input{
+#fields input {
     border-radius: 5PX;
     font-size: 20px;
     margin: 10px;
 }
 
-#fields input:focus{
+#fields input:focus {
     outline: none;
 }
 
-#button{
+#button {
     text-align: center;
 }
-#register{
-       
+
+#register {
+
     padding: 0.85em 1.5em;
     font-size: 1 em;
     cursor: pointer;
     text-decoration: none;
     color: #ffffff;
-    background-color: rgb(230, 55, 113);    
+    background-color: rgb(230, 55, 113);
     border: 0px;
     border-radius: 10px;
 }
 
-#register:hover{
+#register:hover {
     transform: scale(1.1);
     transition: 1s;
 }
-#register:not(:hover){
+
+#register:not(:hover) {
     transform: scale(1);
     transition: 1s;
 }
 
-#login{
-       
+#login {
+
     padding: 0.85em 1.5em;
     font-size: 1 em;
     cursor: pointer;
     text-decoration: none;
     color: #ffffff;
-    background-color: rgb(230, 55, 113);    
+    background-color: rgb(230, 55, 113);
     border: 0px;
     border-radius: 10px;
 }
 
-#login:hover{
+#login:hover {
     transform: scale(1.1);
     transition: 1s;
 }
-#login:not(:hover){
+
+#login:not(:hover) {
     transform: scale(1);
     transition: 1s;
 }
@@ -112,3 +113,8 @@ h1{
     transform: scale(1);
     transition: 1s;
 }
+
+
+
+
+

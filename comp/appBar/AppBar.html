@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="appBarStyles.css">
+    <script src="../../pages/login/login.js"></script>
 </head>
 
 <body>
@@ -28,33 +29,32 @@
                         </span>
                     </li>
                     <span class="absoluteFill">
-                        <a 
-                            href="../ejemplo1/ejemplo1.html"
-                            onclick="showSubMenu(0)" class="subMenuAppBar">Nueva Trivia </a>
+                        <a href="../ejemplo1/ejemplo1.html" onclick="showSubMenu(0)" class="subMenuAppBar">Nueva Trivia </a>
                         <a onclick="showSubMenu(0)" class="subMenuAppBar">Nuevo Equipo</a>
                         <a href="../registro/registro.html" onclick="showSubMenu(0)" class="subMenuAppBar">Crear una cuenta</a>
+                        <a href="../login/login.html" onclick="showSubMenu(0)" class="subMenuAppBar">Iniciar Sesión</a>
                     </span>
                 </div>
                 <div id="menu1" class="menuOption">
-                    <li onclick="showSubMenu(1)"">
+                    <li onclick="showSubMenu(1)">
                         Concursos
                         <span class=" absoluteRight">
-                        <img class="arrowImg" src="../../comp/appBar/appBarAssets/arrow-down.png" alt="">
-                        <img class="listImg" src="../../comp/appBar/appBarAssets/list.png" alt="">
+                            <img class="arrowImg" src="../../comp/appBar/appBarAssets/arrow-down.png" alt="">
+                            <img class="listImg" src="../../comp/appBar/appBarAssets/list.png" alt="">
                         </span>
                     </li>
                     <span class="absoluteFill">
                         <a onclick="showSubMenu(1)" class="subMenuAppBar">Nuevo Concurso</a>
-                        <a onclick="showSubMenu(1)" class="subMenuAppBar">Concursos Pasados</a>                        
+                        <a onclick="showSubMenu(1)" class="subMenuAppBar">Concursos Pasados</a>
                     </span>
                 </div>
             </ul>
+            <p id="localUser"></p>
+            <button id="cerrarSesion" onclick="cerrar();">Cerrar sesion</button>
         </nav>
     </div>
     <!-- ************************** -->
-    
+
 
 </body>
-<script src="appBar.js"></script>
-
-</html>
+<script src="appBar.js"></script></html>

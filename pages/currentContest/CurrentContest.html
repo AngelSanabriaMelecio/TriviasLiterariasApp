@@ -8,7 +8,9 @@
     <link rel="stylesheet" href="currentContestStyles.css">
     <link rel="stylesheet" href="../../comp/appBar/appBarStyles.css">
     <script src="../registro/registro.js"></script>
+    <script src="../login/login.js"></script>
 </head>
+
 <body background="./assets/fondo.jpg">
 
     <!-- ***********  App Bar *************** -->
@@ -29,15 +31,14 @@
                         </span>
                     </li>
                     <span class="absoluteFill">
-                        <a 
-                            href="../ejemplo1/ejemplo1.html"
-                            onclick="showSubMenu(0)" class="subMenuAppBar">Nueva Trivia </a>
+                        <a href="../ejemplo1/ejemplo1.html" onclick="showSubMenu(0)" class="subMenuAppBar">Nueva Trivia </a>
                         <a onclick="showSubMenu(0)" class="subMenuAppBar">Nuevo Equipo</a>
                         <a href="../registro/registro.html" onclick="showSubMenu(0)" class="subMenuAppBar">Crear una cuenta</a>
+                        <a href="../login/login.html" onclick="showSubMenu(0)" class="subMenuAppBar">Iniciar Sesión</a>
                     </span>
                 </div>
                 <div id="menu1" class="menuOption">
-                    <li onclick="showSubMenu(1)"">
+                    <li onclick="showSubMenu(1)">
                         Concursos
                         <span class=" absoluteRight">
                         <img class="arrowImg" src="../../comp/appBar/appBarAssets/arrow-down.png" alt="">
@@ -45,12 +46,14 @@
                         </span>
                     </li>
                     <span class="absoluteFill">
-                        <a  href="../currentContest/CurrentContest.html" onclick="showSubMenu(1)" class="subMenuAppBar">Concurso actual</a>
+                        <a href="../currentContest/CurrentContest.html" onclick="showSubMenu(1)" class="subMenuAppBar">Concurso actual</a>
                         <a onclick="showSubMenu(1)" class="subMenuAppBar">Nuevo Concurso</a>
-                        <a onclick="showSubMenu(1)" class="subMenuAppBar">Concursos Pasados</a>                        
+                        <a onclick="showSubMenu(1)" class="subMenuAppBar">Concursos Pasados</a>
                     </span>
                 </div>
             </ul>
+            <p id="localUser"></p>
+            <button id="cerrarSesion" onclick="cerrar();">Cerrar sesion</button>
         </nav>
     </div>
     <!-- ************************** -->
@@ -62,8 +65,8 @@
                 <h1 id="currentQuestion"></h1>
                 <div id="currentParagraphs"></div>
                 <div class="buttonsRow">
-                    <button onclick="showCorrectAnswer()" class="buttonButton" >Revelar</button>
-                    <button onclick="showRandomQuestion()" class="buttonButton" >Siguiente</button>
+                    <button onclick="showCorrectAnswer()" class="buttonButton">Revelar</button>
+                    <button onclick="showRandomQuestion()" class="buttonButton">Siguiente</button>
                 </div>
             </div>
             <button class="button" onclick="updateBoard()">
@@ -86,6 +89,5 @@
         </aside>
     </div>
 </body>
-    <script src="CurrentContest.js"></script>
-    <script src="../../comp/appBar/appBar.js"></script>
-</html>
+<script src="CurrentContest.js"></script>
+<script src="../../comp/appBar/appBar.js"></script></html>
