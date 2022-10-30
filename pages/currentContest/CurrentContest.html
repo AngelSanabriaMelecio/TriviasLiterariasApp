@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="currentContestStyles.css">
+    <link rel="stylesheet" href="../../comp/appBar/appBarStyles.css">
+</head>
+<body background="./assets/fondo.jpg">
+
+    <!-- ***********  App Bar *************** -->
+    <div data-role="appbar" data-expand-point="md" class="appBarContainer">
+        <a href="#" class="logo-container">
+            <span class="logo">
+                E<sup>L</sup>
+            </span>
+        </a>
+        <nav class="menuAppBar">
+            <ul>
+                <div id="menu0" class="menuOption">
+                    <li onclick="showSubMenu(0)">
+                        Registros
+                        <span class="absoluteRight">
+                            <img class="arrowImg" src="../../comp/appBar/appBarAssets/arrow-down.png" alt="">
+                            <img class="listImg" src="../../comp/appBar/appBarAssets/list.png" alt="">
+                        </span>
+                    </li>
+                    <span class="absoluteFill">
+                        <a onclick="showSubMenu(0)" class="subMenuAppBar">Nueva Trivia </a>
+                        <a onclick="showSubMenu(0)" class="subMenuAppBar">Nuevo Equipo</a>
+                    </span>
+                </div>
+                <div id="menu1" class="menuOption">
+                    <li onclick="showSubMenu(1)"">
+                        Concursos
+                        <span class=" absoluteRight">
+                        <img class="arrowImg" src="../../comp/appBar/appBarAssets/arrow-down.png" alt="">
+                        <img class="listImg" src="../../comp/appBar/appBarAssets/list.png" alt="">
+                        </span>
+                    </li>
+                    <span class="absoluteFill">
+                        <a onclick="showSubMenu(1)" class="subMenuAppBar">Nueva Trivia </a>
+                        <a onclick="showSubMenu(1)" class="subMenuAppBar"> Nuevo Equipo </a>
+                    </span>
+                </div>
+            </ul>
+        </nav>
+    </div>
+    <!-- ************************** -->
+
+    <div class="mainContainer">
+        <section>
+            <div class="screen">
+                <h3 id="currentPoints"></h3>
+                <h1 id="currentQuestion"></h1>
+                <div id="currentParagraphs"></div>
+                <div class="buttonsRow">
+                    <button onclick="showCorrectAnswer()" class="buttonButton" >Revelar</button>
+                    <button onclick="showRandomQuestion()" class="buttonButton" >Siguiente</button>
+                </div>
+            </div>
+            <button class="button" onclick="updateBoard()">
+                Random
+            </button>
+
+        </section>
+        <aside>
+            <table id="leaderBoard" class="table">
+                <thead>
+                    <tr>
+                        <th class="rank">R</th>
+                        <th class="name">Equipo</th>
+                        <th class="points">Punt.</th>
+                    </tr>
+                </thead>
+                <tbody id="scoreList">
+                </tbody>
+            </table>
+        </aside>
+    </div>
+</body>
+    <script src="CurrentContest.js"></script>
+    <script src="../../comp/appBar/appBar.js"></script>
+</html>
