@@ -184,3 +184,66 @@ input, button, input[type="text"]{
     display: flex;
     margin-bottom: 1rem;   
 }
+
+.rankingContainer{
+    background-color: #251e1f;
+}
+
+.table th, td{
+    color:white;
+    padding : 5px;
+    border: 1px solid var(--vinoBack)
+}
+#leaderBoard tr{
+    display:block;
+    clear: both;
+    position: absolute;
+    transition: 1s;
+    background-color: var(--vino0);
+    width: max-content;
+}
+
+#leaderBoard .rank{
+    width: 15px;    
+}
+#leaderBoard .name{
+    width:300px
+}
+#leaderBoard .points{
+    text-align: center;
+    width:40px
+}
+
+.screen{
+    width: 100%;
+    background-color: var(--vino);
+    overflow: hidden;
+    opacity: 100%;
+    transition: 1s;
+    
+}
+#currentPoints{
+    font-weight: 100;
+    margin-left: 2rem;
+    font-size: 1rem;    
+    color:white;
+}
+#currentQuestion{
+    margin-left: 2rem;
+    margin: 0;
+    margin-bottom: 2rem;
+    margin-left: 2rem;
+    margin-right: 2rem;
+    color:white;
+    font-size: 3rem;
+}
+h2.paragraph{
+    font-weight: 100;
+    font-size: 1.5rem;
+    margin-left: 2.5rem;
+}
+button.buttonButton{
+    margin-left: 2rem;
+    padding: 1rem;
+
+}

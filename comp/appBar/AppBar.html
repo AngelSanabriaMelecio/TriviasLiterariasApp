@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="appBarStyles.css">
+</head>
+
+<body>
+    <!-- ***********  App Bar *************** -->
+    <div data-role="appbar" data-expand-point="md" class="appBarContainer">
+        <a href="#" class="logo-container">
+            <span class="logo">
+                E<sup>L</sup>
+            </span>
+        </a>
+        <nav class="menuAppBar">
+            <ul>
+                <div id="menu0" class="menuOption">
+                    <li onclick="showSubMenu(0)">
+                        Registros
+                        <span class="absoluteRight">
+                            <img class="arrowImg" src="./appBarAssets/arrow-down.png" alt="">
+                            <img class="listImg" src="./appBarAssets/list.png" alt="">
+                        </span>
+                    </li>
+                    <span class="absoluteFill">
+                        <a onclick="showSubMenu(0)" class="subMenuAppBar">Nueva Trivia </a>
+                        <a onclick="showSubMenu(0)" class="subMenuAppBar">Nuevo Equipo</a>
+                    </span>
+                </div>
+                <div id="menu1" class="menuOption">
+                    <li onclick="showSubMenu(1)">
+                        Concursos
+                        <span class=" absoluteRight">
+                        <img class="arrowImg" src="./appBarAssets/arrow-down.png" alt="">
+                        <img class="listImg" src="./appBarAssets/list.png" alt="">
+                        </span>
+                    </li>
+                    <span class="absoluteFill">
+                        <a onclick="showSubMenu(1)" class="subMenuAppBar">Nueva Trivia </a>
+                        <a onclick="showSubMenu(1)" class="subMenuAppBar"> Nuevo Equipo </a>
+                    </span>
+                </div>
+            </ul>
+        </nav>
+    </div>
+    <!-- ************************** -->
+    
+
+</body>
+<script src="appBar.js"></script>
+
+</html>

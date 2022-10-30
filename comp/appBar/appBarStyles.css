@@ -1,0 +1,142 @@
+:root{
+    --padding:10px;
+    --padding2:15px;
+    --radius:5px;
+    --black:#1d1a1a;
+    --vino:#973139;
+    --vino-hover:#8f212a;
+    --vino-active:#be4953;
+    --light-gray:#dddddd;
+    --light-gray2: rgb(240, 240, 240);
+    --white:rgb(250, 252, 255);
+
+}
+body{
+    margin: 0;
+}
+a{
+    text-decoration: none;
+}
+.logo-container{
+    display: flex;
+    width: 55px;
+    padding: var(--padding);
+    background-color: var(--vino);
+    transition: 0.1s;
+}
+.logo-container:hover{
+    background-color: var(--vino-hover);
+}
+.logo-container:active{
+    background-color: var(--vino-active);
+    transition: 0s;
+}
+.appBarContainer{
+    display: flex;
+    flex-direction: row;
+    background-color: var(--vino);
+    color: var(--white);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+}
+.logo{
+    text-align: center;
+    width: 100%;
+    font-weight: normal;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 1.8rem;
+    width: 100%;
+    color: var(--white);
+}
+.menuAppBar{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+}
+.menuAppBar ul{
+    display: flex;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    flex-direction: row;
+    height: 100%;
+    
+}
+.menuOption{
+    display: flex;
+    position: relative;   
+    justify-content: end; 
+    width: 160px;
+}
+.menuAppBar ul li{
+    padding: var(--padding);
+    cursor: pointer;
+    position: relative;
+    width: 100%;
+    display: flex;
+    list-style-type: none;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    transition: 0.2s;
+}
+.menuAppBar ul li:hover{
+    background-color: var(--vino-hover);
+}
+.menuAppBar ul li:active{
+    background-color: var(--vino-active);
+    transition: 0s;
+}
+.absoluteRight{
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    right: var(--padding2);
+}
+.arrowImg{
+    filter: invert(100%);
+    position: absolute;
+    right: 50%;
+    transform: translateX(50%);
+    transition: 0.4s;
+    opacity: 100%;
+    height: 0.9rem;
+}
+.listImg{
+    opacity: 0%;
+    transition: 0.4s;
+    filter: invert(100%);
+    position: absolute;
+    height: 0.9rem;
+}
+.absoluteFill{
+    position: absolute;
+    transition: 0.3s;
+    visibility: hidden;
+    width: 90%;
+    height: 100%;
+    background-color: var(--light-gray);
+    transform: translateY(100%);
+}
+.subMenuAppBar{
+    color: var(--black);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--light-gray2);
+    text-align: center;
+    font-size: medium;
+    transition: 0.5s;
+    width: 100%;
+    height: 50%;
+}
+.subMenuAppBar:hover{
+    background-color: var(--light-gray);
+    cursor: pointer;
+}
+.subMenuAppBar:active{
+    background-color: var(--light-gray2);
+    transition: 0s;
+}
