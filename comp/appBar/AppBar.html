@@ -12,7 +12,7 @@
 <body>
     <!-- ***********  App Bar *************** -->
     <div data-role="appbar" data-expand-point="md" class="appBarContainer">
-        <a href="#" class="logo-container">
+        <a href="../principal/principal.html" class="logo-container">
             <span class="logo">
                 E<sup>L</sup>
             </span>
@@ -23,26 +23,29 @@
                     <li onclick="showSubMenu(0)">
                         Registros
                         <span class="absoluteRight">
-                            <img class="arrowImg" src="./appBarAssets/arrow-down.png" alt="">
-                            <img class="listImg" src="./appBarAssets/list.png" alt="">
+                            <img class="arrowImg" src="../../comp/appBar/appBarAssets/arrow-down.png" alt="">
+                            <img class="listImg" src="../../comp/appBar/appBarAssets/list.png" alt="">
                         </span>
                     </li>
                     <span class="absoluteFill">
-                        <a onclick="showSubMenu(0)" class="subMenuAppBar">Nueva Trivia </a>
+                        <a 
+                            href="../ejemplo1/ejemplo1.html"
+                            onclick="showSubMenu(0)" class="subMenuAppBar">Nueva Trivia </a>
                         <a onclick="showSubMenu(0)" class="subMenuAppBar">Nuevo Equipo</a>
+                        <a href="../registro/registro.html" onclick="showSubMenu(0)" class="subMenuAppBar">Crear una cuenta</a>
                     </span>
                 </div>
                 <div id="menu1" class="menuOption">
-                    <li onclick="showSubMenu(1)">
+                    <li onclick="showSubMenu(1)"">
                         Concursos
                         <span class=" absoluteRight">
-                        <img class="arrowImg" src="./appBarAssets/arrow-down.png" alt="">
-                        <img class="listImg" src="./appBarAssets/list.png" alt="">
+                        <img class="arrowImg" src="../../comp/appBar/appBarAssets/arrow-down.png" alt="">
+                        <img class="listImg" src="../../comp/appBar/appBarAssets/list.png" alt="">
                         </span>
                     </li>
                     <span class="absoluteFill">
-                        <a onclick="showSubMenu(1)" class="subMenuAppBar">Nuevo Concurso </a>
-                        <a onclick="showSubMenu(1)" class="subMenuAppBar"> Concursos Pasados </a>
+                        <a onclick="showSubMenu(1)" class="subMenuAppBar">Nuevo Concurso</a>
+                        <a onclick="showSubMenu(1)" class="subMenuAppBar">Concursos Pasados</a>                        
                     </span>
                 </div>
             </ul>

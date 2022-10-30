@@ -1,18 +1,19 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="registro.css" />
+    <script src="./registro.js"></script>
     <link rel="stylesheet" href="../../comp/appBar/appBarStyles.css">
-    <script src="./principal.js"></script>
+    <title>Document</title>
 </head>
-<body onload="contarVisita()"> 
-
+<body>
+    
     <!-- ***********  App Bar *************** -->
     <div data-role="appbar" data-expand-point="md" class="appBarContainer">
-        <a href="./principal.html" class="logo-container">
+        <a href="../principal/principal.html" class="logo-container">
             <span class="logo">
                 E<sup>L</sup>
             </span>
@@ -53,10 +54,22 @@
         </nav>
     </div>
     <!-- ************************** -->
+    <section class="mainContainer">       
+        <h1>Regístrate ahora</h1></br>
+                                
+        
+        <div  id="fields">
+            <span>Nombre de usuario <input id="userName" type="text"></input></span>    
+        <br>        
+        <span >Contraseña <input id="password" type="password"></input></span>
+        <br>        
+        <br>        
+        <div id="button">
+        <button id="register">Crear cuenta</button>
+        </div>
+        </div>
     
-    <H1> Pagina ahora si Principal </H1>
-    <center> <p id="visitante" class="visitante"></p> </center>
-
+    </section>
 </body>
 <script src="../../comp/appBar/appBar.js"></script>
 </html>
