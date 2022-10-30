@@ -1,89 +1,94 @@
 var numUser = 1;
 
-class User{
-    constructor(userId,userName,password,isAdmin){
+class User {
+    constructor(userId, userName, password, isAdmin) {
         this.userId = userId;
         this.userName = userName;
         this.password = password;
         this.isAdmin = isAdmin;
-    }    
+    }
 }
 
-window.addEventListener('load',()=>{
-    var user = new User(0,"Admin","123",true);
+window.addEventListener('load', () => {
+    var user = new User(0, "Admin", "123", true);
     insertar(user);
 
-    var btn_register = document.getElementById("register");    
+    var btn_register = document.getElementById("register");
+    
+    var btn_login = document.getElementById("login");
 
-    btn_register.addEventListener('click',()=>{
-        
+    btn_register.addEventListener('click', () => {
+
         var userName = document.getElementById("userName").value;
         var password = document.getElementById("password").value;
-        
-        if(validarnombre(userName) && validarpassword(password)){
-            var user = new User(numUser,userName,password,false);
-            if(insertar(user)){
-                alert("Usuario registrado, bienvenido: "+user.userName);
-                window.location.href = "./index.html";
+
+        if (validarnombre(userName) && validarpassword(password)) {
+            var user = new User(numUser, userName, password, false);
+            if (insertar(user)) {
+                alert("Usuario registrado, bienvenido: " + user.userName);
+                window.location.href = "../login/login.html";
                 numUser += 1;
-            }else{
+            } else {
                 alert("Ya existe ese usuario");
-            }            
-        }                
-        
+            }
+        }
+
+    })
+    
+    btn_login.addEventListener('click', () => {
+        window.location.href = "../login/login.html";
     })
 
 })
 
-function validarpassword(password){
-    if(password.length>8){
+function validarpassword(password) {
+    if (password.length >= 8) {
         return true;
-    }else{
+    } else {
         alert("La contraseña debe contener al menos 8 caracteres");
         return false;
     }
 }
 
-function validarnombre(nombre){
+function validarnombre(nombre) {
     const regex = /^[a-zA-Z]([-']?[a-z]+)([a-zA-Z]([-']?[a-z]+))*$/;
-    if(!validar(regex,nombre)) 
-    {
+    if (!validar(regex, nombre)) {
         alert("Nombre no valido");
         return false
 
-    } else {        
+    } else {
         return true
     }
 
 }
 
-function validar(r,str){
+function validar(r, str) {
     var match = str.match(r);
-    return match && str ===match[0];
+    return match && str === match[0];
 }
 
 
-function insertar(user){
+function insertar(user) {
     var flag = true;
-    if(localStorage.getItem('Users')==null){
-        
-        localStorage.setItem('Users','[]')
+    if (localStorage.getItem('Users') == null) {
+
+        localStorage.setItem('Users', '[]')
     }
-    
+
     var datos = JSON.parse(localStorage.getItem('Users'))
-    datos.forEach((it)=>{
-        if(it.userName==user.userName){
+    datos.forEach((it) => {
+        if (it.userName == user.userName) {
             console.log(it.userName);
             flag = false;
         }
     })
 
-    if(flag){
+    if (flag) {
         datos.push(user);
-        localStorage.setItem('Users',JSON.stringify(datos))
+        localStorage.setItem('Users', JSON.stringify(datos))
         return true;
-    }else{
+    } else {
         return false;
     }
-    
+
 }
