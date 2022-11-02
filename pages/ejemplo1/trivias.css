@@ -1,0 +1,216 @@
+:root {
+    --padding: 10px;
+    --padding2: 22px;
+    --radius: 5px;
+    --black: #1d1a1a;
+    --vinoBack: #832b32;
+    --vino: #973139;
+    --vino-hover: #8f212a;
+    --vino-active: #be4953;
+    --gray: #b3b3b3;
+    --light-gray: #dddddd;
+    --light-gray2: rgb(240, 240, 240);
+    --white: rgb(250, 252, 255);
+
+}
+
+html,
+body {
+    height: 100%;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.page {
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+}
+
+.page section {
+    width: 70%;
+    background-color: var(--vinoBack);
+    padding: var(--padding);
+}
+
+.triviaContainer{
+    display: none;
+}
+
+.questionsContainer {
+    display: flex;
+    flex-direction: column;
+
+}
+
+.questionContainer {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--vino);
+    padding: 1rem;
+    margin-bottom: 1rem;
+
+}
+
+.paragraphContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-top: 0.3rem;
+    margin-bottom: 0.3rem;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=text]::placeholder,input[type=number]::placeholder  {
+    color: var(--gray);
+}
+
+input[type=text], input[type=number] {
+    width: 100%;
+    height: 1.4rem;
+    border: 0;
+    border-bottom: 1px solid transparent;
+    background-color: transparent;
+    color: var(--white);
+    transition:0.2s;
+    outline: none;
+}
+input[type=text]:hover, input[type=number]:hover{
+    border-bottom: 1px solid var(--gray);
+}
+
+input[type=text]:focus, input[type=number]:focus {
+    border-bottom: 1px solid var(--light-gray);
+    transition: 0.2s;
+}
+
+input[type=checkbox] {
+    margin: 0;
+    margin-right: 1rem;
+    place-content: center;
+    height: 1.3rem;
+    width: 1.3rem;
+}
+
+.button {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.flex-row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+section {
+    display: flex;
+    flex-direction: column;
+}
+
+#triviaName {
+    font-size: x-large;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.questionText {
+    font-size: large;
+}
+
+.paragraphText {
+    font-size: medium;
+}
+.addButton{
+    font-family: Arial, Helvetica, sans-serif;
+    width: 100%;
+}
+.saveButton{
+    margin-top: 1rem;
+}
+.button{
+    border: 0;
+    height: 2rem;
+    background-color: var(--vino);
+    color: var(--white);
+    transition: 0.2s;
+}
+.button:hover{
+    background-color: var(--vino-hover);
+}
+.button:active{
+    background-color: var(--vino-active);
+    transition: 0s;
+}
+.questionRow{
+    margin-top: 0.6rem;
+    margin-bottom: 0.6rem;
+}
+p{
+    font-size: small;
+    margin: 0;
+    margin-right: 0.5rem;
+}
+.pointsRow{
+    width: 100%;
+}
+.pointsInput{
+    text-align: center;
+    display: flex;
+    width: 1rem;
+}
+.deleteQuestion{
+    align-self: end;
+}
+.between{
+    justify-content: space-between;
+}
+.w-30{
+    width:20%;
+}
+aside{
+    padding: var(--padding);
+    width: 30%;
+    background-color: var(--vinoBack);
+}
+.trivias{
+    display: flex;
+    flex-direction: column;
+
+}
+.triviaCard{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: var(--padding);
+    height: 9rem;
+    background-color: var(--vino);
+    border: 2px solid transparent;
+    transition: 0.2s;
+}
+.triviaCard:hover{
+    border: 2px solid var(--gray);
+}
+.triviaSelected{
+    border: 2px solid var(--light-gray2);
+}
+.triviaCard:active{
+    opacity: 50%;
+    transition: 0s;
+}
+
+.color{
+    margin: 0.5rem;
+    height: 50%;
+    background-color: #1d1a1a;
+    position: relative;
+}
+.info{
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+}
