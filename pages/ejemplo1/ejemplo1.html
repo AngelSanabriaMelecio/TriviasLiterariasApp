@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="../../comp/appBar/appBarStyles.css">
+    <link rel="stylesheet" href="./trivias.css">
     <script src="../registro/registro.js"></script>
     <script src="../login/login.js"></script>
 </head>
@@ -16,7 +17,7 @@
     <!-- ***********  App Bar *************** -->
     <div data-role="appbar" data-expand-point="md" class="appBarContainer">
         <a href="../principal/principal.html" class="logo-container">
-            <span class="logo">
+            <span    class="logo">
                 E<sup>L</sup>
             </span>
         </a>
@@ -58,9 +59,52 @@
     </div>
     <!-- ************************** -->
 
-    <H1> Ejemplo </H1>
+    <div class="page">
+        <section id="section">
+            <div class="triviaContainer">
+                <input id="triviaName" type="text" placeholder="Nombre de la trivia" >
+                <div id="questions" class="questionsContainer">
+                    <div id="Q1" class="questionContainer">
+                        <div class="flex-row pointsRow between">
+                            <div class="flex-row w-30" >
+                                <p>Puntos: </p>
+                                <input class="pointsInput" type="number" placeholder="Pts.">
+                            </div>
+                            <button class="button deleteQuestion" onclick="deleteQuestion(event)">X</button>
+                        </div>
+                        <div class="flex-row questionRow">
+                            <input class="questionText" type="text" placeholder="Pregunta">
+                        </div>
+                        <div id="paragraphs">
+                            <div class="paragraphContainer">
+                                <input type="checkbox" name="" id="isCorrect">
+                                <input class="paragraphText" id="P1" type="text" onfocus="handleFocus( event )" placeholder="Nuevo Inciso" >
+                                <button class="button" onclick="deleteParagraph(event)" disabled >
+                                    X
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="button addButton" onclick="appendQuestion()" >
+                    Agregar Pregunta
+                </div>
+                <div class="button saveButton" onclick="saveTrivia()" >
+                    Guardar
+                </div>
+            </div>
+        </section>
+        <aside>
+            <div id="trivias">
+                
+            </div>
+            <div class="button addButton" onclick="appendTrivia()" >
+                Nueva
+            </div>
+        </aside>
+    </div>
 
 </body>
 <script src="../../comp/appBar/appBar.js"></script>
-
+<script src="./trivias.js"></script>
 </html>
