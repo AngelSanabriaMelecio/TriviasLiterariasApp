@@ -15,11 +15,8 @@ function login() {
 function verificarUser(nombre, pass) {
     var flag = false;
     var datos = JSON.parse(localStorage.getItem('Users'))
-    var usuario = document.getElementById("userNameLogin").value;
-    var contrasenia = document.getElementById("passwordLogin").value;
-
     datos.forEach((it) => {
-        if (it.userName == usuario && it.password == contrasenia) {
+        if (it.userName == nombre && it.password == pass) {
             flag = true;
         }
     })

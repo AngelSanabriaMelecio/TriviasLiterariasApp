@@ -22,7 +22,7 @@ window.addEventListener('load', () => {
         var userName = document.getElementById("userName").value;
         var password = document.getElementById("password").value;
 
-        if (validarnombre(userName) && validarpassword(password)) {
+        /*if (validarnombre(userName) && validarpassword(password)) {
             var user = new User(numUser, userName, password, false);
             if (insertar(user)) {
                 alert("Usuario registrado, bienvenido: " + user.userName);
@@ -31,14 +31,13 @@ window.addEventListener('load', () => {
             } else {
                 alert("Ya existe ese usuario");
             }
-        }
+        }*/
 
     })
     
     btn_login.addEventListener('click', () => {
         window.location.href = "../login/login.html";
     })
-
 })
 
 function validarpassword(password) {
@@ -59,7 +58,6 @@ function validarnombre(nombre) {
     } else {
         return true
     }
-
 }
 
 function validar(r, str) {
@@ -85,7 +83,7 @@ function insertar(user) {
 
     if (flag) {
         datos.push(user);
-        localStorage.setItem('Users', JSON.stringify(datos))
+        localStorage.setItem( 'Users', JSON.stringify(datos) )
         return true;
     } else {
         return false;

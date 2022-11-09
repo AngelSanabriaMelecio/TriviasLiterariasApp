@@ -60,17 +60,17 @@
         <h1>Regístrate ahora</h1><br />
 
 
-        <div id="fields">
-            <span>Nombre de usuario <input id="userName" type="text" /></span>
+        <form action="../../php/registroBE.php" method="POST" id="fields">
+            <span>Nombre de usuario <input id="userName" type="text" name="inpUser" /></span>
             <br>
-            <span>Contraseña <input id="password" type="password" /></span>
+            <span>Contraseña <input name="inpPassword" id="inpPassword" type="password" /></span>
             <br>
             <br>
             <div id="button">
-                <button id="register">Crear cuenta</button>
-                <button id="login">Iniciar Sesion</button>
+                <input type="submit" id="register" value="Crear"></input>
             </div>
-        </div>
+        </form>
+        <button id="login">Iniciar Sesion</button>
 
     </section>
 </body>
