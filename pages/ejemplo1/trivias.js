@@ -62,9 +62,9 @@ function handleFocus(e) {
  * Esta es una forma de incrustar html
  * pero no es la unica
  */
-
-
 }
+
+
 function appendQuestion() {
 
     let Q = document.getElementById('questions')
@@ -184,9 +184,6 @@ function updateParagraphs(paragraphs) {
  * Pasamos el html a JSON
  */
 function saveTrivia() {
-
-
-    
     let t = document.getElementById('triviaName').value
     document.getElementById(selectedTriviaId).querySelector('#lblTriviaName').textContent = 'Nombre: '+ t+''
     
@@ -194,7 +191,6 @@ function saveTrivia() {
     let Q = document.getElementById('questions')
     let N = Q.children.length
    document.getElementById(selectedTriviaId).querySelector('#lblQuestionsCount').textContent = 'Preguntas:'+ N+''
-   // console.log(document.getElementById(selectedTriviaId).querySelector('#lblQuestionsCount'))
 
     let qs = []
     for (let i = 0; i < N; i++) {
