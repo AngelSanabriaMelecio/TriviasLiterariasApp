@@ -3,17 +3,73 @@
 
 */
 
+const urlSaveTriviasBe = 'http://localhost/TriviasApp/database/saveTrivia.php'
+const urlGetTriviasBe = 'http://localhost/TriviasApp/database/getTrivias.php'
+const urlDeleteTriviaBe = 'http://localhost/TriviasApp/database/deleteTrivia.php'
+
+
 var myTrivias = [] //               Estructura que guarda los objetos
 var selectedTriviaId = null      //   El id (UID) de la trivia seleccionada        
+
+async function getData(){
+
+    await fetch(urlGetTriviasBe,{
+        method: 'GET',
+        headers:{
+            'content-type':'application/json'
+        }
+    })
+    .then(response => response.json() )
+    .then( data => {console.log('getting: ',data); paintTrivias(data) } )
+    .catch(error => alert('MyError:' + error))
+    
+}
+getData()
+
+function paintTrivias( data ){
+
+    triviasDOM = document.getElementById('trivias')
+
+    myTrivias = data;
+
+    myTrivias.forEach( (tr,i) => {
+
+        let newT = document.createElement('div')
+        newT.style.cursor = 'pointer'
+        newT.id = tr.triviaId;
+        newT.addEventListener('click', () => triviaSelected(newT.id))
+        newT.classList.add('triviaCard')
+
+        let divColor = document.createElement("div")
+        divColor.classList.add('color')
+        divColor.style.background = tr.triviaColor
+        
+        newT.appendChild(divColor)
+        
+        newT.innerHTML +=
+        `<div class="info">
+            <div class="flex-row" id="lblTriviaName">
+                Nombre: ${tr.title}
+            </div>
+            <div class="flex-row" id="lblQuestionsCount">
+                Preguntas: ${tr.questions.length}
+            </div>
+        </div>`
+        
+        triviasDOM.appendChild(newT)
+
+    } )
+
+}
 
 
 /*
 Cuando se enfoca un input de inciso
-queremos saber si es el ultimo de su pregunta              */ 
+queremos saber si es el ultimo de su pregunta              */
 function handleFocus(e) {
     // Los inputs estan anidados
     // Pero queremos el id del contenedor principal
-    let QuestionId = e.target.parentNode.parentNode.parentNode.id 
+    let QuestionId = e.target.parentNode.parentNode.parentNode.id
     let ParagraphId = e.target.id
 
     // El querySelector busca en en lo mas profundo
@@ -26,7 +82,7 @@ function handleFocus(e) {
         id: 'P1'                  id: 'Q1'
         id[1] = 1 
     */
-    /* Es la ultima ?  Incrustamos un fragmento */ 
+    /* Es la ultima ?  Incrustamos un fragmento */
     if (size === Number(ParagraphId[1])) {
         // podemos acceder al css de las etiquetas
         Q.querySelector('#' + ParagraphId).placeholder = "Inciso " + ParagraphId[1]
@@ -58,10 +114,10 @@ function handleFocus(e) {
     }
     // Recorremos los incisos para cambiar el index
     updateParagraphs(e.target.parentNode.parentNode.children)
-/**
- * Esta es una forma de incrustar html
- * pero no es la unica
- */
+    /**
+     * Esta es una forma de incrustar html
+     * pero no es la unica
+     */
 }
 
 
@@ -183,14 +239,14 @@ function updateParagraphs(paragraphs) {
 /**
  * Pasamos el html a JSON
  */
-function saveTrivia() {
+async function saveTrivia() {
+
     let t = document.getElementById('triviaName').value
-    document.getElementById(selectedTriviaId).querySelector('#lblTriviaName').textContent = 'Nombre: '+ t+''
-    
-    
+    document.getElementById(selectedTriviaId).querySelector('#lblTriviaName').textContent = 'Nombre: ' + t + ''
+
     let Q = document.getElementById('questions')
     let N = Q.children.length
-   document.getElementById(selectedTriviaId).querySelector('#lblQuestionsCount').textContent = 'Preguntas:'+ N+''
+    document.getElementById(selectedTriviaId).querySelector('#lblQuestionsCount').textContent = 'Preguntas:' + N + ''
 
     let qs = []
     for (let i = 0; i < N; i++) {
@@ -207,14 +263,31 @@ function saveTrivia() {
         }
         qs.push({ question: q, points: p, paragraphs: pg })
     }
-    myTrivias.forEach((tr, i) => {
+    let savedTrivia = { triviaId: selectedTriviaId, title: t, questions: qs }
+    
+    myTrivias.forEach( async(tr, i) => {
         if (tr.triviaId === selectedTriviaId) {
-            myTrivias[i] = { triviaId: selectedTriviaId, title: t, questions: qs }
+            myTrivias[i] = {...tr, ...savedTrivia}
+            //FETCH
+            //console.log( myTrivias[i] )
+            const res = await fetch(urlSaveTriviasBe,{
+                    method: 'POST',
+                    headers:{
+                        'content-type':'application/json'
+                    },
+                    body: JSON.stringify( myTrivias[i] )
+                })
+                .then(response => response.json() )
+                .then( data => {/*console.log(data)*/} )
+                .catch(error => alert('MyError:' + error))
         }
     })
+
+
+    
 }
 
-function appendTrivia() {
+async function appendTrivia() {
 
     let T = document.getElementById('trivias')
 
@@ -224,27 +297,15 @@ function appendTrivia() {
     newT.addEventListener('click', () => triviaSelected(newT.id))
     newT.classList.add('triviaCard')
 
-    
-
-    myTrivias.push({
-        triviaId: newT.id,
-        title: '',
-        questions: [{
-            question: '',
-            points: '',
-            paragraphs: []
-        }]
-    })
-
     let hrand = Math.floor(Math.random() * 360);
     let divColor = document.createElement("div")
     divColor.classList.add('color')
     divColor.style.background = `hsl( ${hrand},25%,40% )`
-
+    
     newT.appendChild(divColor)
-
+    
     newT.innerHTML +=
-        `<div class="info">
+    `<div class="info">
         <div class="flex-row" id="lblTriviaName">
             Nombre:
         </div>
@@ -252,28 +313,39 @@ function appendTrivia() {
             Preguntas:
         </div>
     </div>`
-
+    
     T.appendChild(newT)
+    
+    myTrivias.push({
+        triviaId: newT.id,
+        title: '',
+        triviaColor: `hsl(${hrand},25%,40%)`,
+        questions: [{
+            question: '',
+            points: '',
+            paragraphs: []
+        }]
+    })
 
-
-    if( myTrivias.length == 1 ){
+    if (myTrivias.length == 1) {
         selectedTriviaId = newT.id
         triviaSelected(newT.id)
     }
 }
 
 /**
- * Pero es un poco mas dificil paar JSON a html xd
+ * Pero es un poco mas dificil pasar JSON a html xd
  */
 function triviaSelected(id) {
-    saveTrivia()
+    if( selectedTriviaId!=null )
+        saveTrivia()
     
-    query = '#'+selectedTriviaId
-    if(selectedTriviaId!=null)
+    query = '#' + selectedTriviaId
+    if (selectedTriviaId != null )
         document.getElementById('trivias').querySelector(query).classList.remove('triviaSelected')
 
     document.getElementById('trivias').querySelector(`#${id}`).classList.add('triviaSelected')
-
+        
     selectedTriviaId = id
     let trivia = myTrivias.find((t) => {
         return t.triviaId === id
@@ -294,6 +366,9 @@ function triviaSelected(id) {
     </div>
     <div class="button saveButton" onclick="saveTrivia()" >
         Guardar
+    </div>
+    <div class="button saveButton" onclick="deleteTrivia()" >
+        Eliminar
     </div>
     `
 
@@ -360,4 +435,25 @@ function triviaSelected(id) {
         Pg.appendChild(lastP)
         Q.appendChild(newQ)
     })
+}
+
+async function deleteTrivia(){
+    
+    document.getElementById('trivias').querySelector(`#`+selectedTriviaId).remove()
+    document.getElementById('section').innerHTML = "";
+    
+    await fetch(urlDeleteTriviaBe,{
+        method: 'POST',
+        headers:{
+            'content-type':'application/json'
+        },
+        body: JSON.stringify(selectedTriviaId)
+    })
+    .then( response => response.json() )
+    .then( data => alert(data) )
+    .catch(error => alert('MyError:' + error))
+ 
+
+    selectedTriviaId = null
+
 }

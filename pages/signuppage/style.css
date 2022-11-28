@@ -1,0 +1,79 @@
+body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-size: cover;
+    margin: 0;
+    height: 100vh;
+    color: var(--white);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.loginbox{
+    padding: 1rem;
+    width: 300px;
+    background-color: var(--black);
+    color: var(--white);
+    border-radius: 10px;
+    box-shadow: 5px 5px 10px 5px #000000ab;
+
+    opacity: 0%;
+    transition: 0.5s;
+}
+.loginbox h1{
+    text-align: center;
+}
+p{
+    display: flex;
+    margin: 0;
+    margin-bottom: 0.5rem;
+}
+.center{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+input{
+    width: 100%;
+    outline: none;
+    border: 0;
+    height: 2rem;
+    padding-left: 10px;
+    padding-right: 10px;
+    background-color: var(--gray);
+    color: var(--white);
+    border: 2px solid transparent;
+}
+.button{
+    background-color: var(--vino);
+    cursor: pointer;
+    position: relative;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    transition: 0.2s;
+    color: white;
+}
+.button:hover{
+    background-color: var(--vino-hover);
+}
+.button:active{
+    background-color: var(--vino-active);
+    transition: 0s;
+}
+
+.link a{
+    color:var(--white)
+}
+.error{
+    color: var(--danger)
+}
+.required{
+
+    border: 2px solid var(--danger);
+}
+.succes{
+    color:rgb(149, 250, 67);
+}
