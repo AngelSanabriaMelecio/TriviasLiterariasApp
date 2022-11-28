@@ -1,0 +1,23 @@
+:root{
+    --padding:10px;
+    --padding2:22px;
+    --radius:5px;
+    --black:#292525;
+    --gray:#3a3737;
+    --vino:#973139;
+    --vino-hover:#8f212a;
+    --vino-active:#be4953;
+    --light-gray:#dddddd;
+    --light-gray2: rgb(240, 240, 240);
+    --white:rgb(250, 252, 255);
+    --danger:#e44250;
+
+}
+body{
+    background-size: cover;
+}
+.center{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

@@ -1,64 +1,74 @@
+<?php
+
+    session_start();
+    if(!isset($_SESSION['userName'])){
+        header('Location:/TriviasApp/pages/LoginPage/login.php');
+    }
+
+    include_once('../../database/conexion.php');
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="../../comp/appBar/appBarStyles.css">
-    <link rel="stylesheet" href="./trivias.css">
-    <script src="../registro/registro.js"></script>
-    <script src="../login/login.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../../constants/global.css">
+    <link rel="stylesheet" href="../../constants/appBarStyle.css">
 </head>
-
-<body>
-
+<body background="../../assets/fondo.png" >
     <!-- ***********  App Bar *************** -->
     <div data-role="appbar" data-expand-point="md" class="appBarContainer">
-        <a href="../principal/principal.html" class="logo-container">
-            <span    class="logo">
+        <a href="../home" class="logo-container">
+            <span class="logo">
                 E<sup>L</sup>
             </span>
         </a>
         <nav class="menuAppBar">
-            <ul>
-                <div id="menu0" class="menuOption">
-                    <li onclick="showSubMenu(0)">
-                        Registros
-                        <span class="absoluteRight">
-                            <img class="arrowImg" src="../../comp/appBar/appBarAssets/arrow-down.png" alt="">
-                            <img class="listImg" src="../../comp/appBar/appBarAssets/list.png" alt="">
+            <ul class="between">
+                <div class="row">
+                    <div id="menu0" class="menuOption">
+                    <li class="button" onclick="showSubMenu(0)">
+                            Registros
+                            <span class="absoluteRight">
+                                <img class="arrowImg" src="../../assets/arrow-down.png" alt="">
+                                <img class="listImg" src="../../assets/list.png" alt="">
+                            </span>
+                        </li>
+                        <span class="absoluteFill">
+                            <a href="../triviasPage/" onclick="showSubMenu(0)" class="subMenuAppBar">Nueva Trivia </a>
+                            <a onclick="showSubMenu(0)" class="subMenuAppBar">Nuevo Equipo</a>
                         </span>
-                    </li>
-                    <span class="absoluteFill">
-                        <a href="../ejemplo1/ejemplo1.html" onclick="showSubMenu(0)" class="subMenuAppBar">Nueva Trivia </a>
-                        <a onclick="showSubMenu(0)" class="subMenuAppBar">Nuevo Equipo</a>
-                        <a href="../registro/registro.html" onclick="showSubMenu(0)" class="subMenuAppBar">Crear una cuenta</a>
-                        <a href="../login/login.html" onclick="showSubMenu(0)" class="subMenuAppBar">Iniciar Sesión</a>
-                    </span>
+                    </div>
+                    <div id="menu1" class="menuOption">
+                        <li class="button" onclick="showSubMenu(1)">
+                            Concursos
+                            <span class=" absoluteRight">
+                            <img class="arrowImg" src="../../assets/arrow-down.png" alt="">
+                            <img class="listImg" src="../../assets/list.png" alt="">
+                            </span>
+                        </li>
+                        <span class="absoluteFill">
+                            <a href="../currentContest/CurrentContest.html" onclick="showSubMenu(1)" class="subMenuAppBar">Concurso actual</a>
+                            <a onclick="showSubMenu(1)" class="subMenuAppBar">Nuevo Concurso</a>
+                            <a onclick="showSubMenu(1)" class="subMenuAppBar">Concursos Pasados</a>
+                        </span>
+                    </div>
                 </div>
-                <div id="menu1" class="menuOption">
-                    <li onclick="showSubMenu(1)">
-                        Concursos
-                        <span class=" absoluteRight">
-                        <img class="arrowImg" src="../../comp/appBar/appBarAssets/arrow-down.png" alt="">
-                        <img class="listImg" src="../../comp/appBar/appBarAssets/list.png" alt="">
-                        </span>
-                    </li>
-                    <span class="absoluteFill">
-                        <a href="../currentContest/CurrentContest.html" onclick="showSubMenu(1)" class="subMenuAppBar">Concurso actual</a>
-                        <a onclick="showSubMenu(1)" class="subMenuAppBar">Nuevo Concurso</a>
-                        <a onclick="showSubMenu(1)" class="subMenuAppBar">Concursos Pasados</a>
-                    </span>
+                <div>
+                    <div class="menuOption">
+                        <a class="button" href="../../database/logout.php">Cerrar sesion</a>
+                    </div>
                 </div>
             </ul>
-            <p id="localUser"></p>
-            <button id="cerrarSesion" onclick="cerrar();">Cerrar sesion</button>
         </nav>
     </div>
     <!-- ************************** -->
-
     <div class="page">
         <section id="section">
             <div class="triviaContainer">
@@ -95,8 +105,7 @@
             </div>
         </section>
         <aside>
-            <div id="trivias">
-                
+            <div id="trivias"> 
             </div>
             <div class="button addButton" onclick="appendTrivia()" >
                 Nueva
@@ -104,7 +113,7 @@
         </aside>
     </div>
 
+    <script src="../../constants/master.js"></script>
+    <script src="main.js"></script>
 </body>
-<script src="../../comp/appBar/appBar.js"></script>
-<script src="./trivias.js"></script>
 </html>

@@ -3,6 +3,7 @@
     --padding2: 22px;
     --radius: 5px;
     --black: #1d1a1a;
+    --grayBack: rgba(46, 44, 44, 0.89);
     --vinoBack: #832b32;
     --vino: #973139;
     --vino-hover: #8f212a;
@@ -28,8 +29,10 @@ body {
 
 .page section {
     width: 70%;
-    background-color: var(--vinoBack);
-    padding: var(--padding);
+    margin: var(--padding);
+    margin-right: 5px;
+    background-color: var(--grayBack);
+    padding: var(--padding2);
 }
 
 .triviaContainer{
@@ -111,6 +114,7 @@ input[type=checkbox] {
 
 section {
     display: flex;
+
     flex-direction: column;
 }
 
@@ -175,9 +179,11 @@ p{
     width:20%;
 }
 aside{
-    padding: var(--padding);
+    padding: var(--padding2);
+    margin: var(--padding);
+    margin-left: 5px;
     width: 30%;
-    background-color: var(--vinoBack);
+    background-color: var(--grayBack);
 }
 .trivias{
     display: flex;
